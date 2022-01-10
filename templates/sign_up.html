@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password], input[type=submit], input[type=email], input[type=date], #gender {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+h1, h3 {
+            margin: Auto;
+            text-align: center;
+            color: #931c37;
+            background-color: #e78d8d;
+            border: solid 1px;
+            height: 60px;
+            }
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.container {
+    padding: 16px;
+    border: 1px solid #9a4040;
+    width: 50%;
+    margin-left: 22%;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+  }
+}
+</style>
+    <meta charset="UTF-8">
+    <title>Registration/Sign-up</title>
+</head>
+
+<body>
+
+<h1>Registration/Sign-up</h1>
+
+<form action="{% url 'sign_up' %}" method="POST">
+    {% csrf_token %}
+   <div class="container">
+    <center>
+        <label for="email"><b>Email_Id</b></label>
+    <input type="email" placeholder="Enter Password" name="email" required><br>
+        <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required><br>
+        <label for="fname"><b>First_Name</b></label>
+    <input type="text" placeholder="firstname" name="firstname" required><br>
+        <label for="lname"><b>Last_Name</b></label>
+    <input type="text" placeholder="lastname" name="lastname" required><br>
+        <label for="contact"><b>Contact_no.</b></label>
+    <input type="text" placeholder="contact" name="contact" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required><br>
+        <label for="dob"><b>D_O_B</b></label>
+    <input type="date" placeholder="birthday" name="birthday" required><br>
+        <label for="gender"><b>Gender: </b></label>
+        <select name="gender" id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option></select><br>
+    <button type="submit">Register</button><br>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label> </center>
+  </div>
+</form>
+<div class="form sign-up">
+      <h2>Time to feel like home,</h2>
+      <label>
+        <span>Name</span>
+        <input type="text" />
+      </label>
+      <label>
+        <span>Email</span>
+        <input type="email" />
+      </label>
+      <label>
+        <span>Password</span>
+        <input type="password" />
+      </label>
+</body>
+</html>
